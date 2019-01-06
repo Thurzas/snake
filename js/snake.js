@@ -18,15 +18,15 @@ function Snake(X, Y, screen) {
 			this.body[this.Size - 1] = new Coord(this.x, this.y);
 			this.x = this.x + this.xs;
 			this.y = this.y + this.ys;
-			if (this.x >= this.screen.WorldX.length) {
+			if (this.x >= this.screen.WorldX.length-1) {
 				this.x = 0;
 			} else if (this.x < 0) {
-				this.x = this.screen.WorldX.length;
+				this.x = this.screen.WorldX.length-1;
 			}
-			if (this.y >= this.screen.WorldY.length) {
+			if (this.y >= this.screen.WorldY.length-1) {
 				this.y = 0;
 			} else if (this.y < 0) {
-				this.y = this.screen.WorldY.length;
+				this.y = this.screen.WorldY.length-1;
 			}
 			if(this.screen.IsCoordVisible(this.x,this.y)===3){
 				res=true;
@@ -36,12 +36,12 @@ function Snake(X, Y, screen) {
 	}
 	Snake.prototype.UP = function () {
 		this.direction(0, -1);
-		this.LastKey = "LEFT";
+		this.LastKey = "UP";
 	};
 
 	Snake.prototype.DOWN = function () {
 		this.direction(0, 1);
-		this.LastKey = "LEFT";
+		this.LastKey = "DOWN";
 	};
 
 	Snake.prototype.LEFT = function () {
@@ -51,7 +51,7 @@ function Snake(X, Y, screen) {
 
 	Snake.prototype.RIGHT = function () {
 		this.direction(1, 0);
-		this.LastKey = "LEFT";
+		this.LastKey = "RIGHT";
 	};
 
 	this.Collision = function () {
