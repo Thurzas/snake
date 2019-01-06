@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Exercice 4 partie 3</title>
+  <link rel="stylesheet"  href="css/gameboy.css">  
+  <script src="js/processing.js"></script>
+  <script src="js/jquery-3.2.1.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/snake.js"></script>
+  <script src="js/exo5.js"></script>
+  
+</head>
+<body>
+
+    <div id="device" class="centered">
+        <div id="on-off-button" class="gb-input"></div>
+        <div id="case">
+          <div id="top">
+            <div id="inner-top">
+              <div id="on-off-stripes">
+                <div id="on-off-stripes-inner"></div>
+              </div>
+              <span id="on-off-text">OFF ● ON</span>
+            </div>
+          </div>
+          <div id="display-border" class="centered">
+            <div id="dot-matrix-stripes"></div>
+            <div id="dot-matrix-text">DOT MATRIX WITH STEREO SOUND</div>
+            <div id="battery-dot"></div>
+            <div id="battery-text">BATTERY</div>
+            <canvas id="display" width="160" height="144" class="centered" />
+          </div>
+          <div id="bottom">
+            <div id="dpad">
+              <div id="dpad-up" class="dpad-direction gb-input"></div>
+              <div id="dpad-right" class="dpad-direction gb-input"></div>
+              <div id="dpad-down" class="dpad-direction gb-input"></div>
+              <div id="dpad-left" class="dpad-direction gb-input"></div>
+              <div id="dpad-center" class="dpad-direction"></div>
+            </div>
+            <div id="a-b-button-wrapper">
+              <div id="a-b-button">
+                <div id="b-button" class="gb-input"></div>
+                <div id="a-button" class="gb-input"></div>
+              </div>
+              <div id="a-b-button-text">
+                <div>B</div>
+                <div>A</div>
+              </div>
+            </div>
+            <div id="select-start-button">
+              <div id="select-button-wrapper">
+                <div id="select-button" class="gb-input"></div>
+                <div id="select-button-text">SELECT</div>
+              </div>
+              <div id="start-button-wrapper">
+                <div id="start-button" class="gb-input"></div>
+                <div id="start-button-text">START</div>
+              </div>
+            </div>
+      
+            <div id="audio-boxes">
+              <div class="audio-box-strip"></div>
+              <div class="audio-box-strip"></div>
+              <div class="audio-box-strip"></div>
+              <div class="audio-box-strip"></div>
+              <div class="audio-box-strip"></div>
+              <div class="audio-box-strip"></div>
+            </div>
+            <div id="audio-phones">
+              <span id="audio-phones-text">PHONES</span>
+              <div id="audio-phones-stripes">
+                <div id="audio-phones-stripes-inner"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>

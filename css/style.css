@@ -1,0 +1,18 @@
+fieldset{
+  background: rgb(200,200,110);
+  color:green;
+}
+fieldset label{
+  float:left;
+}
+fieldset input
+{
+  float: left;
+}
+
+#carré{
+  display:block;
+  background-color:red;
+  width:50px;
+  height:50px;
+}
