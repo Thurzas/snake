@@ -13,14 +13,7 @@ function Letter(screen){
 			this.grid[i]=-1;
 		}
 	};
-	Letter.prototype.write =function(text,color){
-		var array=text.split();
-		var res ={};
-		for (var i = 0; i < array.length; i++) {
-			Array.prototype.push.apply(res,this.init(array[i],color));
-		}
-		this.grid=res;
-	}
+
 	this.init =function(letter,color){
 		switch(letter)
 		{

@@ -35,7 +35,6 @@ $(function () {
 
   for (let input of gbInput) {
     const btnName = extractButtonName(input.id);
-    console.log(input);
     input.onclick = (e) => inputs(btnName);
   }
 
@@ -86,7 +85,6 @@ $(function () {
         break;
 
         case 'a':
-        console.log(s);
         break;
         }
       }
@@ -100,7 +98,7 @@ $(function () {
     this.screen = new Screen(display.width, display.height-((this.pixel/2))*20+this.margin*20, 0, 0, this.pixel, this.margin, COLOR_2);
     this.snake=new Snake(5,5,this.screen);
     this.walls;
-    this.menu= new Screen(display.width, ((this.pixel/2))+this.margin*20,  0, 0, this.pixel/2, this.margin, COLOR_2);
+    this.menu= new Screen(display.width, ((this.pixel/2))+this.margin*20,  0, display.height-((this.pixel/2))*20+this.margin*20, this.pixel/2, this.margin, COLOR_2);
     this.filter= new Screen(display.width, display.height,0,0, this.pixel/2, this.margin, COLOR_4);
 
     Game.prototype.Start = function () {
@@ -127,30 +125,56 @@ $(function () {
 
   Game.prototype.build= function(){
     var letter= new Letter(this.screen);
-    letter.write("^",3);
+    //letter.write("^",3);
     this.walls = letter;
   }
 
   Game.prototype.Paint=function() {
     var letter = new Letter(this.menu);
-    letter.write("S",3);
-    console.log(letter);
+    letter.init("S",3)
     ctx.clearRect(0, 0, display.width, display.height);
-    this.snake.Draw(this.screen)
+    this.snake.Draw(this.screen);
     this.screen.SetCoordVisibility(Apple[1], Apple[0], 2);
-    this.wall?this.screen.DrawInGrid(this.walls,0,this.screen.WorldY.length-1):this.wall=false;
+    //this.wall?this.screen.DrawInGrid(this.walls,0,this.screen.WorldY.length-1):this.wall=false;
+    var text= "SCORE "+this.Score;
+    DrawText(0,0,this.menu,text,3);
     this.menu.DrawInGrid(letter,0,0);
     this.filter.showTest();
     this.screen.show();
-    this.menu.showTest();
+    this.menu.show();
+
   };
+
+
+  function DrawText(Y,X,output,Text,color){
+    var letter = new Letter();
+    var Margin=0;
+    var hitbox=0;
+    var hitboxY=0;
+    var sizeX=0;
+    for(var i=0;i<Text.length;i++)
+    {
+      letter.init(Text[i],color);
+      output.DrawInGrid(letter,X, Y + Margin);
+      Margin +=letter.sizeX+1;
+      if(letter.sizeX/letter.grid.length >hitboxY)
+      hitboxY=letter.grid.length/letter.sizeX;
+      sizeX+=letter.sizeX;
+    }
+    //hitbox=new Array(Margin).fill(new Array(hitboxY).fill(5));
+    hitbox=new Array(new Coord(Y,X),new Coord(Y+hitboxY,X+Margin));
+    output.DrawGrid();
+    //console.log("X "+hitbox[0].x +" Y "+hitbox[0].y+"    "+ "X "+hitbox[1].x +" Y "+hitbox[1].y  );    
+    return hitbox;
+  }
 
   function PlaceApple(screen) {
     Apple = new Array(getRandomInt(0, screen.WorldX.length - 1), getRandomInt(0, screen.WorldY.length - 1));;
   };
 
   function Screen(X, Y,x,y, pixel, m,color) {
-    this.coords={x,y};
+    this.x=x;
+    this.y=y;
     this.pixelSize = pixel;
     this.margin = m;
     this.WorldX = new Array(Math.round(X / (pixel + this.margin)));
@@ -159,6 +183,7 @@ $(function () {
     this.wall;
     this.color=color;
     this.enable=true;
+    
     for (var i = 0; i < this.WorldX.length; i++) {
       this.WorldX[i] = i * pixel + (i) * this.margin;
     }
@@ -187,8 +212,8 @@ $(function () {
         increment++;
 
       if (img.grid[i] > -1)
-        //this.ShowCoord[i % img.sizeX + this.WorldX.length * increment + (this.WorldX.length * X + Y)] = img.grid[i];
-        this.ShowCoord[(i%(img.sizeX+1)*increment + (this.WorldX.length * Y + X))]=img.grid[i];
+        this.ShowCoord[i % img.sizeX + this.WorldX.length * increment + (this.WorldX.length * X + Y)] = img.grid[i];
+        //this.ShowCoord[(i%(img.sizeX+1)*increment + (this.WorldX.length * Y + X))]=img.grid[i];
     }
   };
 
@@ -208,7 +233,8 @@ $(function () {
       {
         //SelectColor(i,j,output);
         if (this.IsCoordVisible(i, j) >= 1) {
-          ctx.fillRect(this.coords[0]+this.WorldX[j],this.coords[1]+ this.WorldY[i], this.pixelSize, this.pixelSize);
+          //ctx.fillRect(this.coords[0]+this.WorldX[j],this.coords[1]+ this.WorldY[i], this.pixelSize, this.pixelSize);
+          ctx.fillRect(this.WorldX[j]+this.x,this.WorldY[i]+this.y, this.pixelSize, this.pixelSize);
         }
       }
     }
