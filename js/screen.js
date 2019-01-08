@@ -27,7 +27,7 @@ $(function () {
 
 
 
-  const gbInput = $("#dpad").find('.gb-input');
+  const gbInput = $(".gb-input")
 
   const extractButtonName = (id) => {
     return id.replace('-button', '').replace('dpad-', '')
@@ -35,6 +35,7 @@ $(function () {
 
   for (let input of gbInput) {
     const btnName = extractButtonName(input.id);
+    console.log(btnName);
     input.onclick = (e) => inputs(btnName);
   }
 
@@ -44,7 +45,7 @@ $(function () {
     g.Start();
   }, 1000 / FPS);
 
-  function inputs(button, e) {
+  function inputs(button) {
     switch (button) {
       case 'left':
         if (g.snake.LastKey != "RIGHT") {
@@ -84,8 +85,10 @@ $(function () {
         }
         break;
 
-        case 'a':
-        break;
+        case 'start':
+          console.log(g.STOP);
+          g.STOP?g.STOP=false:g.STOP=true;
+          break;
         }
       }
 
@@ -102,7 +105,13 @@ $(function () {
     this.filter= new Screen(display.width, display.height,0,0, this.pixel/2, this.margin, COLOR_4);
 
     Game.prototype.Start = function () {
-      if(this.wall){
+      if(this.STOP)
+      { 
+        console.log();
+        DrawText(Math.floor(this.screen.WorldX.length/6),Math.floor(this.screen.WorldY.length/2),this.screen,"PAUSE",3);
+      }else
+      {
+        if(this.wall){
         this.build();
       }
       if (Apple === undefined)
@@ -114,6 +123,7 @@ $(function () {
       }
       if (this.snake.update(this.screen)||this.snake.Collision()) {
         this.reset();
+      }
       }
     }
 
