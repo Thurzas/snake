@@ -14,17 +14,24 @@ function Letter(screen){
 		}
 	};
 
-	this.init =function(letter,color){
+	Letter.prototype.init =function(letter,color){
 		switch(letter)
 		{
-			case "^":
+			case '^':
 				this.Setup(this.screen.WorldX.length,1);
 				for (var i = 0; i < this.grid.length; i++) {
 					this.grid[i]=color;
 				}
 				break;
 
-			case "0":
+			case '%I':
+				this.Setup(4,4);
+				this.grid[1];
+				this.grid[5];
+				this.grid[9];
+				this.grid[13];
+				
+			case '0':
 				this.Setup(3,5);
 				this.grid[0]=color;
 				this.grid[1]=color;
@@ -40,7 +47,7 @@ function Letter(screen){
 				this.grid[14]=color;
 				break;
 
-			case "1":
+			case '1':
 
 				this.Setup(3,5);
 				this.grid[1]=color;
@@ -51,7 +58,7 @@ function Letter(screen){
 				this.grid[13]=color;
 				break;
 
-			case "2":
+			case '2':
 
 				this.Setup(3,5);
 				this.grid[0]=color;
@@ -67,7 +74,7 @@ function Letter(screen){
 				this.grid[14]=color;
 
 				break;
-			case "3":
+			case '3':
 
 				this.Setup(3,5);
 				this.grid[0]=color;
@@ -83,7 +90,7 @@ function Letter(screen){
 				this.grid[14]=color;
 
 				break;
-			case "4":
+			case '4':
 
 				this.Setup(3,5);
 				this.grid[0]=color;
@@ -97,7 +104,7 @@ function Letter(screen){
 				this.grid[14]=color;
 
 				break;
-			case "5":
+			case '5':
 
 				this.Setup(3,5);
 				this.grid[0]=color;
@@ -113,7 +120,7 @@ function Letter(screen){
 				this.grid[14]=color;
 				break;
 
-			case "6":
+			case '6':
 
 				this.Setup(3,5);
 				this.grid[0]=color;
@@ -129,7 +136,7 @@ function Letter(screen){
 				this.grid[13]=color;
 				this.grid[14]=color;
 				break;
-			case "7":
+			case '7':
 
 				this.Setup(3,5);
 				this.grid[0]=color;
@@ -141,7 +148,7 @@ function Letter(screen){
 				this.grid[14]=color;
 
 				break;
-			case "8":
+			case '8':
 
 				this.Setup(3,5);
 				this.grid[0]=color;
@@ -159,7 +166,7 @@ function Letter(screen){
 				this.grid[14]=color;
 				break;
 
-			case "9":
+			case '9':
 
 				this.Setup(3,5);
 				this.grid[0]=color;
@@ -176,7 +183,7 @@ function Letter(screen){
 				this.grid[14]=color;
 				break;
 
-			case "A":
+			case 'A':
 
 				this.Setup(3,5);
 				this.grid[0]=color;
@@ -193,7 +200,7 @@ function Letter(screen){
 				this.grid[14]=color;
 				break;
 
-			case "B":
+			case 'B':
 
 				this.Setup(4,5);
 				this.grid[0]=color;
@@ -210,7 +217,7 @@ function Letter(screen){
 				this.grid[17]=color;
 				this.grid[18]=color;
 				break;
-			case "C":
+			case 'C':
 
 				this.Setup(3,5);
 				this.grid[1]=color;
@@ -222,7 +229,7 @@ function Letter(screen){
 				this.grid[14]=color;
 				break;
 
-			case "D":
+			case 'D':
 
 				this.Setup(4,5);
 				this.grid[0]=color;
@@ -238,7 +245,7 @@ function Letter(screen){
 				this.grid[17]=color;
 				this.grid[18]=color;
 				break;
-			case "E":
+			case 'E':
 
 				this.Setup(3,5);
 				this.grid[0]=color;
@@ -253,7 +260,7 @@ function Letter(screen){
 				this.grid[14]=color;
 				break;
 
-			case "F":
+			case 'F':
 
 				this.Setup(3,5);
 				this.grid[0]=color;
@@ -266,7 +273,7 @@ function Letter(screen){
 				this.grid[12]=color;
 				break;
 
-			case "G":
+			case 'G':
 
 				this.Setup(4,5);
 				this.grid[1]=color;
@@ -281,7 +288,7 @@ function Letter(screen){
 				this.grid[17]=color;
 				this.grid[18]=color;
 				break;
-			case "H":
+			case 'H':
 
 				this.Setup(3,5);
 				this.grid[0]=color;
@@ -297,7 +304,7 @@ function Letter(screen){
 				this.grid[14]=color;
 				break;
 
-			case "I":
+			case 'I':
 
 				this.Setup(3,5);
 				this.grid[0]=color;
@@ -311,7 +318,7 @@ function Letter(screen){
 				this.grid[14]=color;
 				break;
 
-			case "J":
+			case 'J':
 
 				this.Setup(4,5);
 				this.grid[1]=color;
@@ -323,7 +330,7 @@ function Letter(screen){
 				this.grid[16]=color;
 				this.grid[17]=color;
 				break;
-			case "K":
+			case 'K':
 
 				this.Setup(4,5);
 				this.grid[0]=color;
@@ -338,7 +345,7 @@ function Letter(screen){
 				this.grid[16]=color;
 				this.grid[19]=color;
 				break;
-			case "L":
+			case 'L':
 
 				this.Setup(3,5);
 				this.grid[0]=color;
@@ -350,7 +357,7 @@ function Letter(screen){
 				this.grid[14]=color;
 				break;
 
-			case "M":
+			case 'M':
 
 				this.Setup(4,5);
 				this.grid[0]=color;
@@ -366,7 +373,7 @@ function Letter(screen){
 				this.grid[16]=color;
 				this.grid[19]=color;
 				break;
-			case "N":
+			case 'N':
 
 				this.Setup(4,5);
 				this.grid[0]=color;
@@ -382,7 +389,7 @@ function Letter(screen){
 				this.grid[16]=color;
 				this.grid[19]=color;
 				break;
-			case "O":
+			case 'O':
 
 				this.Setup(3,5);
 				this.grid[1]=color;
@@ -395,7 +402,7 @@ function Letter(screen){
 				this.grid[13]=color;
 				break;
 
-			case "P":
+			case 'P':
 
 				this.Setup(3,5);
 				this.grid[0]=color;
@@ -410,7 +417,7 @@ function Letter(screen){
 				this.grid[12]=color;
 				break;
 
-			case "Q":
+			case 'Q':
 
 				this.Setup(5,6);
 				this.grid[1]=color;
@@ -428,7 +435,7 @@ function Letter(screen){
 				this.grid[29]=color;
 				break;
 
-			case "R":
+			case 'R':
 
 				this.Setup(3,5);
 				this.grid[0]=color;
@@ -443,7 +450,7 @@ function Letter(screen){
 				this.grid[14]=color;
 				break;
 
-			case "S":
+			case 'S':
 
 				this.Setup(3,5);
 				this.grid[1]=color;
@@ -455,7 +462,7 @@ function Letter(screen){
 				this.grid[13]=color;
 				break;
 
-			case "T":
+			case 'T':
 
 				this.Setup(3,5);
 				this.grid[0]=color;
@@ -467,7 +474,7 @@ function Letter(screen){
 				this.grid[13]=color;
 				break;
 
-			case "U":
+			case 'U':
 
 				this.Setup(3,5);
 				this.grid[0]=color;
@@ -483,7 +490,7 @@ function Letter(screen){
 				this.grid[14]=color;
 				break;
 
-			case "V":
+			case 'V':
 
 				this.Setup(3,5);
 				this.grid[0]=color;
@@ -497,7 +504,7 @@ function Letter(screen){
 				this.grid[13]=color;
 				break;
 
-			case "W":
+			case 'W':
 
 				this.Setup(4,5);
 				this.grid[0]=color;
@@ -514,7 +521,7 @@ function Letter(screen){
 				this.grid[19]=color;
 				break;
 
-			case "X":
+			case 'X':
 
 				this.Setup(4,5);
 				this.grid[0]=color;
@@ -529,7 +536,7 @@ function Letter(screen){
 				this.grid[19]=color;
 				break;
 
-			case "Y":
+			case 'Y':
 
 				this.Setup(4,5);
 				this.grid[0]=color;
@@ -542,7 +549,7 @@ function Letter(screen){
 				this.grid[16]=color;
 				break;
 
-			case "Z":
+			case 'Z':
 
 				this.Setup(4,5);
 				this.grid[0]=color;
@@ -561,7 +568,7 @@ function Letter(screen){
 				this.grid[19]=color;
 				break;
 
-			case " ":
+			case ' ':
 				this.Setup(1,5);
 				break;
 		}

@@ -3,8 +3,9 @@ function Snake(X, Y, screen) {
 	this.y = Math.floor(Y);
 	this.xs = 1;
 	this.ys = 0;
-	this.Size = 0;
-	this.body = [];
+	this.Size = 3;
+//	this.body = new Array(5).fill(new Coord(this.x,this.y));  le jeu est possédé
+	this.body=  [new Coord(this.x+1,this.y),new Coord(this.x+2,this.y),new Coord(this.x+3,this.y)];	
 	this.IsMoving = false;
 	this.LastKey = "";
 	this.screen = screen;
